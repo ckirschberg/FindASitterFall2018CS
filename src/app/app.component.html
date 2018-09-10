@@ -7,7 +7,16 @@
 </div>
 
 
-<div *ngIf="isBaby">
+
+
+<button routerLink="home">Home</button>
+<button routerLink="contact">Contact</button>
+<button routerLink="login">Login</button>
+<button routerLink="register">Register</button>
+
+<router-outlet></router-outlet>
+
+<!-- <div *ngIf="isBaby">
   Baby is here!
 </div>
 
@@ -23,7 +32,7 @@
 
 
 <h1>Register</h1>
-<!-- Method call to onClickSitter -->
+
 <button (click)="onClickSitter()">View Sitter</button>
 <button (click)="onClickBaby()">View Baby</button>
 
@@ -39,4 +48,5 @@
 <h1>Ændre noget</h1>
 Nu ændrer jeg noget!
 
-<router-outlet></router-outlet>
+
+ -->
