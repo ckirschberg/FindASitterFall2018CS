@@ -3,14 +3,25 @@
     Username
   </p>
   <input type="text" formControlName="username">
+  <div *ngIf="loginForm.controls.username.touched && loginForm.controls.username.errors?.required">
+    Username must be filled out
+  </div>
+  <div *ngIf="loginForm.controls.username.dirty && loginForm.controls.username.errors?.minlength">
+    Username must be 5 characters
+  </div>
 
   <p>
     Password
   </p>
   <input type="password" formControlName="password">
+  <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required">
+    Password must be filled out
+  </div>
 
   <br />
   <button>Login</button>
+
+  {{loginForm.status}}
 </form>
 
 
