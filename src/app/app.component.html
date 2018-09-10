@@ -7,14 +7,29 @@
 </div>
 
 
-<div *ngIf="title === 'Find A Sitter'">
-  Do you see me?
+<div *ngIf="isBaby">
+  Baby is here!
 </div>
+
+<div *ngIf="type === 'Baby'">
+  Baby 2
+</div>
+<div *ngIf="type === 'Parent'">
+  Parent
+</div>
+<div *ngIf="type === 'Sitter'">
+  Sitter
+</div>
+
 
 <h1>Register</h1>
 <!-- Method call to onClickSitter -->
 <button (click)="onClickSitter()">View Sitter</button>
-<button >View Baby</button>
+<button (click)="onClickBaby()">View Baby</button>
+
+<button (click)="onClick('Baby')">View Baby2</button>
+<button (click)="onClick('Parent')">View Parent</button>
+<button (click)="onClick('Sitter')">View Sitter2</button>
 
 
 

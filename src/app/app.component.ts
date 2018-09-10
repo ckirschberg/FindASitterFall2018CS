@@ -6,12 +6,32 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title: string = 'Find A Sitter';
+  // title: string = 'Find A Sitter';
+  isBaby: Boolean = undefined;
+  type: String = '';
 
   // Method definition
   onClickSitter() : void {
-    this.title = 'Find a sitter2';
-    console.log("User clicked View Sitter");
+    this.isBaby = false;
+    // console.log("User clicked View Sitter");
   }
+
+  // Method defintion
+  onClickBaby() {
+    this.isBaby = true;
+  }
+
+
+  onClick(value: String) {
+    this.type = value;
+  }
+  // onClickParent() {
+  //   this.type = 'Parent';
+  // }
+  // onClickSitter2() {
+  //   this.type = 'Sitter';
+  // }
+
+
 
 }
