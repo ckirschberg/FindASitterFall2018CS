@@ -17,6 +17,8 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { Simon2Component } from './home/simon2/simon2.component';
 import { HenrikComponent } from './home/henrik/henrik.component';
+import { PortalComponent } from './portal/portal.component';
+import { FindASitterComponent } from './portal/find-a-sitter/find-a-sitter.component';
 
 
 @NgModule({
@@ -28,7 +30,9 @@ import { HenrikComponent } from './home/henrik/henrik.component';
     RegisterComponent,
     PageNotFoundComponent,
     Simon2Component,
-    HenrikComponent
+    HenrikComponent,
+    PortalComponent,
+    FindASitterComponent
   ],
   imports: [
     BrowserModule,

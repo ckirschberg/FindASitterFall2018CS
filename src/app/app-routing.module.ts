@@ -1,3 +1,5 @@
+import { AuthGuard } from './auth/auth.guard';
+import { FindASitterComponent } from './portal/find-a-sitter/find-a-sitter.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
@@ -7,6 +9,7 @@ import { RegisterComponent } from './register/register.component';
 import { ContactComponent } from './contact/contact.component';
 import { Simon2Component } from './home/simon2/simon2.component';
 import { HenrikComponent } from './home/henrik/henrik.component';
+import { PortalComponent } from './portal/portal.component';
 
 const routes: Routes = [  { 
   path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -16,6 +19,11 @@ const routes: Routes = [  {
       {path: 'henrik', component: HenrikComponent}
     ]
   },
+{path: 'portal', component: PortalComponent, canActivate: [AuthGuard], children: 
+  [
+    {path: 'findasitter', component: FindASitterComponent},
+  ]
+},
 
   {path: 'contact', component: ContactComponent},
   {path: 'login', component: LoginComponent},
