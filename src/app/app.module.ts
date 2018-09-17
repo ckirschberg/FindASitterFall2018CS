@@ -7,7 +7,7 @@ import { LoginComponent } from './login/login.component';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatInputModule, MatInput} from '@angular/material/input';
+import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
@@ -15,6 +15,8 @@ import { RegisterComponent } from './register/register.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { Simon2Component } from './home/simon2/simon2.component';
+import { HenrikComponent } from './home/henrik/henrik.component';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { MatNativeDateModule } from '@angular/material/core';
     HomeComponent,
     ContactComponent,
     RegisterComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    Simon2Component,
+    HenrikComponent
   ],
   imports: [
     BrowserModule,

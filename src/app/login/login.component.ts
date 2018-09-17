@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { MatCheckbox } from '@angular/material/checkbox';
 
 @Component({
   selector: 'app-login',
