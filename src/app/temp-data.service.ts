@@ -20,4 +20,9 @@ export class TempDataService {
   ];
   
   constructor() { }
+
+  public addSitter(sitter: Sitter): void {
+    this.sitters.push(sitter);
+  }
+
 }

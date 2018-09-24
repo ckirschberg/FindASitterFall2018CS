@@ -19,6 +19,8 @@ import { Simon2Component } from './home/simon2/simon2.component';
 import { HenrikComponent } from './home/henrik/henrik.component';
 import { PortalComponent } from './portal/portal.component';
 import { SittersListComponent } from './sitters-list/sitters-list.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -40,7 +42,7 @@ import { SittersListComponent } from './sitters-list/sitters-list.component';
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatCheckboxModule, MatDatepickerModule, MatNativeDateModule
+    MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

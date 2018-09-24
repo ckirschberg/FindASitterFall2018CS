@@ -15,7 +15,7 @@
   <p>
     Username
   </p>
-  <input type="text" formControlName="username" >
+  <input type="text" formControlName="username" id="username">
   <div *ngIf="loginForm.controls.username.touched && loginForm.controls.username.errors?.required">
     Username must be filled out
   </div>
@@ -26,7 +26,7 @@
   <p>
     Password
   </p>
-  <input type="password" formControlName="password">
+  <input type="password" formControlName="password" id="password">
   <div *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.required">
     Password must be filled out
   </div>
@@ -35,7 +35,7 @@
 
 
   <br />
-  <button>Login</button>
+  <button id="btnLogin">Login</button>
 
   {{loginForm.status}}
 </form>

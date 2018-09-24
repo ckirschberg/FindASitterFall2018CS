@@ -1,5 +1,19 @@
-<p>
-  sitters-list works!
-</p>
-
-{{tempData.sitters[0].username}}
+<div class="card-container">
+  <mat-card class="example-card" *ngFor="let sitter of sitters">
+    <mat-card-header>
+      <div mat-card-avatar class="example-header-image"></div>
+      <mat-card-title>{{sitter.name}}</mat-card-title>
+      <mat-card-subtitle>{{sitter.gender}}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+    <mat-card-content>
+      <p>
+        My hourly rate is: {{sitter.hourlyWage}}
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button>LIKE</button>
+      <button mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
