@@ -19,6 +19,7 @@ import { Simon2Component } from './home/simon2/simon2.component';
 import { HenrikComponent } from './home/henrik/henrik.component';
 import { PortalComponent } from './portal/portal.component';
 import { FindASitterComponent } from './portal/find-a-sitter/find-a-sitter.component';
+import { SittersListComponent } from './sitters-list/sitters-list.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { FindASitterComponent } from './portal/find-a-sitter/find-a-sitter.compo
     Simon2Component,
     HenrikComponent,
     PortalComponent,
-    FindASitterComponent
+    FindASitterComponent,
+    SittersListComponent
   ],
   imports: [
     BrowserModule,

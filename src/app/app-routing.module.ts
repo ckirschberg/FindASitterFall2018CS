@@ -1,5 +1,5 @@
+import { SittersListComponent } from './sitters-list/sitters-list.component';
 import { AuthGuard } from './auth/auth.guard';
-import { FindASitterComponent } from './portal/find-a-sitter/find-a-sitter.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
@@ -21,7 +21,8 @@ const routes: Routes = [  {
   },
 {path: 'portal', component: PortalComponent, canActivate: [AuthGuard], children: 
   [
-    {path: 'findasitter', component: FindASitterComponent},
+    {path: 'findasitter', component: SittersListComponent},
+    // {path: 'findasitter/:id', component: EditSitterComponent},
   ]
 },
 

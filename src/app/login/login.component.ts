@@ -30,9 +30,12 @@ export class LoginComponent implements OnInit {
       // Send request to back-end to validate login.
       this.authService.login().subscribe(result => {
         // Navigate based on a certain condition.
-        this.router.navigate(['/portal/findasitter']);
+        console.log("hej");
+
+        this.router.navigate(['/portal/findasitter']);  
       });
 
+      console.log("hej igen");
       
 
     } else {
