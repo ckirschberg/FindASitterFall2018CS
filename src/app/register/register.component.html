@@ -1,3 +1,7 @@
-<p>
-  register works!
-</p>
+<form novalidate [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+  <input id="usernameInput" name="username" formControlName="username" placeholder="Username">
+  <input id="passwordInput" name="password" formControlName="password" placeholder="Password">
+  <input id="nameInput" name="name" formControlName="name" placeholder="Name">
+
+  <button id="registerSubmit">Register</button>
+</form>

@@ -1,4 +1,4 @@
-import { browser, element, by } from "protractor";
+import { browser, element, by, $$ } from "protractor";
 
 /* 
  1.0: Create a new sitter
@@ -26,6 +26,17 @@ describe('sitters-list', () => {
 
     element.all(by.css('.example-card')).then(function(elemsAfter) {
       // elemsAfter will be a number specifying how many elements of .yourCssClassHere there are in the page.
+      let sittersCountBefore = elemsAfter.length;
+      $$('menuRegister').click();
+
+      $$('usernameInput').sendKeys('Simon');
+      $$('passwordInput').sendKeys('Simons Password');
+      $$('nameInput').sendKeys('Simon Ryom');
+      $$('registerSubmit').click();
+
+      
+
+
       console.log(elemsAfter.length);
 
 
