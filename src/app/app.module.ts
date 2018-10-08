@@ -21,6 +21,7 @@ import { PortalComponent } from './portal/portal.component';
 import { SittersListComponent } from './sitters-list/sitters-list.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { DisplaySitterComponent } from './portal/display-sitter/display-sitter.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import {MatButtonModule} from '@angular/material/button';
     Simon2Component,
     HenrikComponent,
     PortalComponent,
-    SittersListComponent
+    SittersListComponent,
+    DisplaySitterComponent
   ],
   imports: [
     BrowserModule,

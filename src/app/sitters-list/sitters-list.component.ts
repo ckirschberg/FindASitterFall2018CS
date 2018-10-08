@@ -17,4 +17,8 @@ export class SittersListComponent implements OnInit {
   ngOnInit() {
   }
 
+  onSitterEditClicked(sitter: Sitter) {
+    console.log("someone clicked sitter", sitter);
+  }
+
 }
