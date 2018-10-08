@@ -2,6 +2,7 @@ import { TempDataService } from './../temp-data.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Sitter } from '../entities/sitter';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-register',
@@ -11,7 +12,8 @@ import { Sitter } from '../entities/sitter';
 export class RegisterComponent implements OnInit {
   registerForm;
 
-  constructor(private fb: FormBuilder, private data: TempDataService) { }
+  constructor(private fb: FormBuilder, private data: TempDataService,
+    private router: Router) { }
 
   ngOnInit() {
     this.registerForm = this.fb.group({
@@ -27,5 +29,6 @@ export class RegisterComponent implements OnInit {
 
     this.data.addSitter(sitter);
     console.log(this.data.sitters);
+    this.router.navigate(['/login']);
   }
 }

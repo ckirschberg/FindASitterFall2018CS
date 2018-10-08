@@ -1,8 +1,11 @@
 import { browser, element, by, $$ } from "protractor";
+import { AppPage } from "./app.po";
 
 /* 
  1.0: Create a new sitter
 */
+
+
 
 describe('sitters-list', () => {
 
@@ -17,35 +20,32 @@ describe('sitters-list', () => {
 
   it('1.0: Create a new sitter and after, there should be one more', () => {
     browser.get('/portal/findasitter'); // 1
-
-    element(by.id('username')).sendKeys('myusername');
-    // browser.sleep(1000);
-    element(by.id('password')).sendKeys('mypassword');
-    // browser.sleep(1000);
-    element(by.id('btnLogin')).click();
-
-    element.all(by.css('.example-card')).then(function(elemsAfter) {
+    let page = new AppPage();
+    //call login
+    page.login();
+browser.sleep(2000);
+console.log("hej");
+    element.all(by.css('.example-card')).then(function(elemsBefore) {
       // elemsAfter will be a number specifying how many elements of .yourCssClassHere there are in the page.
-      let sittersCountBefore = elemsAfter.length;
-      $$('menuRegister').click();
-
-      $$('usernameInput').sendKeys('Simon');
-      $$('passwordInput').sendKeys('Simons Password');
-      $$('nameInput').sendKeys('Simon Ryom');
-      $$('registerSubmit').click();
-
-      
 
 
-      console.log(elemsAfter.length);
+      let sittersCountBefore = elemsBefore.length;
+      element(by.id('menuRegister')).click();
+      // element(by.id('usernameInput')) == $$()
 
-
-      expect(true).toBeFalsy();
+      // browser.sleep(2000);
+      $$('#usernameInput').sendKeys('Simon');
+      $$('#passwordInput').sendKeys('Simons Password');
+      $$('#nameInput').sendKeys('Simon Ryom');
+// console.log(elemsBefore.length);
+      $$('#registerSubmit').click();
+// browser.sleep(4000);
+      page.login();
+      element.all(by.css('.example-card')).then(function(elemsAfter) {
+        let sittersCountAfter = elemsAfter.length;
+        expect(sittersCountAfter-sittersCountBefore).toBe(1);
+      });
     });
-    
-    // browser.sleep(5000);
-
   });
-
 
 });
