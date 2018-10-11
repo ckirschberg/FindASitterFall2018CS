@@ -19,12 +19,12 @@ const routes: Routes = [  {
       {path: 'henrik', component: HenrikComponent}
     ]
   },
-{path: 'portal', component: PortalComponent, canActivate: [AuthGuard], children: 
-  [
-    {path: 'findasitter', component: SittersListComponent},
-    // {path: 'findasitter/:id', component: EditSitterComponent},
-  ]
-},
+  {path: 'portal', component: PortalComponent, canActivate: [AuthGuard], children: 
+    [
+      {path: 'findasitter', component: SittersListComponent},
+      // {path: 'findasitter/:id', component: EditSitterComponent},
+    ]
+  },
 
   {path: 'contact', component: ContactComponent},
   {path: 'login', component: LoginComponent},
