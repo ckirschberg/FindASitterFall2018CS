@@ -37,7 +37,7 @@ console.log("hej");
       $$('#usernameInput').sendKeys('Simon');
       $$('#passwordInput').sendKeys('Simons Password');
       $$('#nameInput').sendKeys('Simon Ryom');
-// console.log(elemsBefore.length);
+// console.log(elemsBepfore.length);
       $$('#registerSubmit').click();
 // browser.sleep(4000);
       page.login();
