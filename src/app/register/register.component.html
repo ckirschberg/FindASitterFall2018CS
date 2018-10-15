@@ -1,4 +1,16 @@
+<!-- View calls (action creator) method that dispatches an action. -->
+<button (click)="sittersActions.setType(false)">Register as sitter</button>
+<button (click)="sittersActions.setType(true)">Register as baby</button>
+
+<div *ngIf="!isBaby && isBaby !== undefined">You are registering as a sitter</div>
+<div *ngIf="isBaby">You are registering as a baby</div>
+
+
+
 <form novalidate [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
+
+
+
   <input id="usernameInput" name="username" formControlName="username" placeholder="Username">
   <input id="passwordInput" name="password" formControlName="password" placeholder="Password">
   <input id="nameInput" name="name" formControlName="name" placeholder="Name">

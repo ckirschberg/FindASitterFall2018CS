@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Sitter } from '../entities/sitter';
 import { Router } from '@angular/router';
+import { SittersActions } from '../sitters-list/sitters.actions';
+import { IAppState } from '../store';
+import { NgRedux } from '@angular-redux/store';
 
 @Component({
   selector: 'app-register',
@@ -11,11 +14,22 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent implements OnInit {
   registerForm;
+  isBaby: boolean;
 
   constructor(private fb: FormBuilder, private data: TempDataService,
-    private router: Router) { }
+    private router: Router, private sittersActions: SittersActions,
+    private ngRedux: NgRedux<IAppState>) { }
 
   ngOnInit() {
+    // Here the component subscribes to the sitters state.
+    // When someone changes the sitters state, this function is 
+    // called, setting the isBaby variable to be the value of 
+    // the isBaby var. in the state.
+    this.ngRedux.select(state => state.sitters)
+    .subscribe((sitterState) => {
+      this.isBaby = sitterState.isBaby;
+    });
+
     this.registerForm = this.fb.group({
       username: ['', Validators.required],
       password: ['',  Validators.required],
@@ -28,7 +42,7 @@ export class RegisterComponent implements OnInit {
     let sitter = form.value as Sitter;
 
     this.data.addSitter(sitter);
-    console.log(this.data.sitters);
+    // console.log(this.data.sitters);
     this.router.navigate(['/login']);
   }
 }

@@ -22,7 +22,11 @@ import { SittersListComponent } from './sitters-list/sitters-list.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { DisplaySitterComponent } from './portal/display-sitter/display-sitter.component';
+import { NgRedux, DevToolsExtension, NgReduxModule } from '@angular-redux/store';
+import { IAppState } from './store';
+import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 
+import { rootReducer } from './store'; // Added this to get the root reducer
 
 @NgModule({
   declarations: [
@@ -44,9 +48,23 @@ import { DisplaySitterComponent } from './portal/display-sitter/display-sitter.c
     ReactiveFormsModule,
     BrowserAnimationsModule,
     MatInputModule,
-    MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatButtonModule
+    MatCheckboxModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatButtonModule,
+    NgReduxModule, NgReduxRouterModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+
+  // Sets up redux in our application.
+  constructor(private ngRedux: NgRedux<IAppState>,
+    private devTool: DevToolsExtension,
+    private ngReduxRouter: NgReduxRouter,) {
+   
+    this.ngRedux.configureStore(
+      rootReducer, {});
+ 
+      ngReduxRouter.initialize(/* args */);   
+  }
+ 
+ }
