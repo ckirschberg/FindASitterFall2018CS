@@ -25,6 +25,7 @@ export class RegisterComponent implements OnInit {
     // When someone changes the sitters state, this function is 
     // called, setting the isBaby variable to be the value of 
     // the isBaby var. in the state.
+    
     this.ngRedux.select(state => state.sitters)
     .subscribe((sitterState) => {
       this.isBaby = sitterState.isBaby;
