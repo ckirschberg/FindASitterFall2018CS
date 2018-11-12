@@ -13,4 +13,12 @@ export class Sitter {
   city: string;
   calendar?: any; // we don't know the type yet...
   
+  rating?: Rating[];
+}
+
+//My suggestion, change if you want to...
+export class Rating {
+  rating: number; //1 - 5
+  description?: String; // This babysitter was not very good because...
+  babyId: String; // The baby who rated the sitter
 }

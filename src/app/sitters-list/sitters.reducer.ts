@@ -21,12 +21,14 @@ const INITIAL_STATE: SittersState = {isBaby: undefined, sitters: [
 export function sittersReducer(state: SittersState = INITIAL_STATE, action:any) {
  
   switch (action.type) {
-    // case SittersActions.CREATE_SITTER:
+    case SittersActions.CREATE_SITTER: //action.payload is a sitter object.
+
+      return tassign(state, { sitters:  [...state.sitters, action.payload]});
   
     // When writing the CRUD cases, look into javascripts spread operator.
-    
 
-  case SittersActions.SET_REGISTER_BABYTYPE:
+
+  case SittersActions.SET_REGISTER_BABYTYPE: // action.payload is a boolean.
     // Copies state, and inserts new isBaby value in new state
     // Thereby "changing" the state
     // state.isBaby = action.payload; // state mutations : NO NO!

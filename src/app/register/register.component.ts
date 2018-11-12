@@ -41,8 +41,8 @@ export class RegisterComponent implements OnInit {
   onSubmit(form) {
     // Call an api, to save new sitter
     let sitter = form.value as Sitter;
-
-    this.data.addSitter(sitter);
+    this.sittersActions.createSitter(sitter);
+    // this.data.addSitter(sitter);
     // console.log(this.data.sitters);
     this.router.navigate(['/login']);
   }
