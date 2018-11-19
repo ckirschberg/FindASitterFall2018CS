@@ -1,4 +1,4 @@
-import { TempDataService } from './../temp-data.service';
+import { TempDataService } from '../services/temp-data.service';
 import { Component, OnInit } from '@angular/core';
 import { Sitter } from '../entities/sitter';
 import { NgRedux } from '@angular-redux/store';

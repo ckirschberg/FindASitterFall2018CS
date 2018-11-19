@@ -1,6 +1,7 @@
 var deepFreeze = require('deep-freeze');
 import { sittersReducer } from './sitters.reducer';
 import * as types from './sitters.actions';
+import { TempDataService } from '../services/temp-data.service';
 
 describe('users reducer', () => {
 
@@ -10,8 +11,9 @@ describe('users reducer', () => {
 
 it('Toggle isBaby or sitter', () => {
   // Initial state
-  let startState = {isBaby: undefined};
-
+  let startState = TempDataService.getInitialSitterTestState();
+  let endState = TempDataService.getInitialSitterTestState();
+  endState.isBaby = true;
   // Checks for state mutations.
   deepFreeze(startState);
 
@@ -20,7 +22,7 @@ it('Toggle isBaby or sitter', () => {
     {
       type: types.SittersActions.SET_REGISTER_BABYTYPE, 
       payload: true 
-    })).toEqual({isBaby: true});
+    })).toEqual(endState);
 });
 });
 

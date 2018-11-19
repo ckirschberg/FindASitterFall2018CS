@@ -1,20 +1,9 @@
+import { TempDataService } from './../services/temp-data.service';
 import { SittersActions } from './sitters.actions';
 import { SittersState } from './../store';
 import { tassign } from 'tassign';
 
-const INITIAL_STATE: SittersState = {isBaby: undefined, sitters: [
-  {username: 'azat', password: 'secret', name: 'Azat Baran', gender: 'male',
-  birthDate: new Date(1995, 2, 16), noCriminalRecord: true, noChildRecord: true,
-  hourlyWage: 1337, address: 'some', zipCode: '2600', city: 'Glostrup' },
-  
-  {username: 'chrk', password: 'secret', name: 'Christian Kirschberg', gender: 'male',
-  birthDate: new Date(1979, 0, 1), noCriminalRecord: true, noChildRecord: true,
-  hourlyWage: 150, address: 'some', zipCode: '3400', city: 'Hillerød' },
-
-  {username: 'salik', password: 'secret3', name: 'Salik fasdjæ', gender: 'male',
-  birthDate: new Date(1995, 1, 1), noCriminalRecord: true, noChildRecord: true,
-  hourlyWage: 100, address: 'some', zipCode: '2400', city: 'København NV' }
-]};
+const INITIAL_STATE: SittersState = TempDataService.getInitialSitterTestState();
 
 // My reducer functions are responsible for changing state, by copying and 
 // changing the copy, since state is immutable.
@@ -25,6 +14,12 @@ export function sittersReducer(state: SittersState = INITIAL_STATE, action:any) 
 
       return tassign(state, { sitters:  [...state.sitters, action.payload]});
   
+    case SittersActions.DELETE_SITTER: // action.payload is a sitterId
+      return tassign(state, { sitters: 
+        state.sitters.filter(sitter => sitter._id !== action.payload) });
+
+
+        
     // When writing the CRUD cases, look into javascripts spread operator.
 
 
