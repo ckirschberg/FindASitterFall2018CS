@@ -1,5 +1,6 @@
 export class Sitter {
   _id?: string;
+  customerId?: string;
   username: string;
   password: string;
 

@@ -25,6 +25,7 @@ import { DisplaySitterComponent } from './portal/display-sitter/display-sitter.c
 import { NgRedux, DevToolsExtension, NgReduxModule } from '@angular-redux/store';
 import { IAppState } from './store';
 import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
+import { HttpClientModule } from '@angular/common/http';
 
 import { rootReducer } from './store'; // Added this to get the root reducer
 
@@ -44,6 +45,7 @@ import { rootReducer } from './store'; // Added this to get the root reducer
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

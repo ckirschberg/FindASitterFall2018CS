@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { NgRedux } from '@angular-redux/store';
 import { IAppState } from './../store';
 import { Sitter } from '../entities/sitter';
+import { ApiService } from '../services/api.service';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class SittersActions {
 
   // We dependency inject the redux library.
   constructor (
-    private ngRedux: NgRedux<IAppState>) {} 
+    private ngRedux: NgRedux<IAppState>, 
+    private apiService: ApiService) {} 
 
     // This gives a strongly typed way to call an action.
   static SET_REGISTER_BABYTYPE: string = 'SET_REGISTER_BABYTYPE'; 
@@ -28,10 +30,23 @@ export class SittersActions {
     })
   }
   createSitter(sitter: Sitter) : void {
-    this.ngRedux.dispatch({
-      type: SittersActions.CREATE_SITTER,
-      payload: sitter
-    })
+    console.log("1");
+
+    this.apiService.createSitter(sitter).subscribe(response => {
+      console.log("3");
+      console.log(response);
+      
+      this.ngRedux.dispatch({
+        type: SittersActions.CREATE_SITTER,
+        payload: sitter
+      });
+    }, error => {
+      console.log("3");
+      console.log(error);
+    });
+    
+    
+    console.log("2");
   }
 
   deleteSitter(sitterId: string) : void {
