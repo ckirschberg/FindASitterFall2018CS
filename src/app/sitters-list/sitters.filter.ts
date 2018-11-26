@@ -11,7 +11,11 @@ export class FilterSitters implements PipeTransform {
 
     console.log(items);
     console.log(search);
-    
+
+    // write a working filter here.
+    // firstname, lastname, zipCode, gender
+
+
     // Return an array that matches the search criteria
     return [];
   }
