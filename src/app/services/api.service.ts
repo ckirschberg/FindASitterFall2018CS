@@ -10,12 +10,12 @@ export class ApiService {
   constructor(private http: HttpClient) { }
 
   getAllSitters() {
-    return this.http.get(environment.apiUrl + "/getall");
+    return this.http.get(environment.apiUrl);
   }
 
   createSitter(sitter: Sitter) {
     sitter.customerId = 'chrk';
-    return this.http.post(environment.apiUrl + "/create", sitter, {responseType: 'text'});
+    return this.http.post(environment.apiUrl, sitter, {responseType: 'text'});
   }
 
   //update 

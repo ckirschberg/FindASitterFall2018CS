@@ -15,6 +15,7 @@ import { NgRedux } from '@angular-redux/store';
 export class RegisterComponent implements OnInit {
   registerForm;
   isBaby: boolean;
+  isProcessing: boolean = false;
 
   constructor(private fb: FormBuilder, private data: TempDataService,
     private router: Router, private sittersActions: SittersActions,
@@ -29,6 +30,7 @@ export class RegisterComponent implements OnInit {
     this.ngRedux.select(state => state.sitters)
     .subscribe((sitterState) => {
       this.isBaby = sitterState.isBaby;
+      this.isProcessing = sitterState.isProcessing;
     });
 
     this.registerForm = this.fb.group({
@@ -44,6 +46,6 @@ export class RegisterComponent implements OnInit {
     this.sittersActions.createSitter(sitter);
     // this.data.addSitter(sitter);
     // console.log(this.data.sitters);
-    this.router.navigate(['/login']);
+    // this.router.navigate(['/login']);
   }
 }

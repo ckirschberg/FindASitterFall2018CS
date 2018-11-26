@@ -6,7 +6,8 @@ import { Sitter } from './entities/sitter';
 
 export class SittersState {
   isBaby: boolean;
-  sitters: Sitter[]
+  sitters: Sitter[];
+  isProcessing: boolean;
 }
 
 // My app's state is defined here. Every variable that my application needs,

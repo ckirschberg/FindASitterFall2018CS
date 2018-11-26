@@ -10,9 +10,14 @@ const INITIAL_STATE: SittersState = TempDataService.getInitialSitterTestState();
 export function sittersReducer(state: SittersState = INITIAL_STATE, action:any) {
  
   switch (action.type) {
-    case SittersActions.CREATE_SITTER: //action.payload is a sitter object.
+    case SittersActions.CREATE_SITTER: // no payload, just set spinner
+      return tassign(state, { isProcessing: true });
 
-      return tassign(state, { sitters:  [...state.sitters, action.payload]});
+    case SittersActions.CREATE_SITTER_FAILURE: // If web service call fails.
+      return tassign(state, { isProcessing: false });
+
+    case SittersActions.CREATE_SITTER_SUCCESS: //action.payload is a sitter object.
+      return tassign(state, { isProcessing: false, sitters:  [...state.sitters, action.payload]});
   
     case SittersActions.DELETE_SITTER: // action.payload is a sitterId
       return tassign(state, { sitters: 

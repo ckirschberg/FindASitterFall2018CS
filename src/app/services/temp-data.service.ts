@@ -8,7 +8,7 @@ import { SittersState } from '../store';
 export class TempDataService {
 
   public static getInitialSitterTestState() : SittersState {
-    return {isBaby: undefined, sitters: [
+    return {isBaby: undefined, isProcessing: false, sitters: [
       {_id: '1',username: 'azat', password: 'secret', name: 'Azat Baran', gender: 'male',
       birthDate: new Date(1995, 2, 16), noCriminalRecord: true, noChildRecord: true,
       hourlyWage: 1337, address: 'some', zipCode: '2600', city: 'Glostrup' },

@@ -6,7 +6,6 @@
 <div *ngIf="isBaby">You are registering as a baby</div>
 
 
-
 <form novalidate [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
 
 
@@ -16,4 +15,8 @@
   <input id="nameInput" name="name" formControlName="name" placeholder="Name">
 
   <button id="registerSubmit">Register</button>
+  <div *ngIf="isProcessing">
+    Please wait while creating new sitter
+  </div>
+  
 </form>
