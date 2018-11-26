@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatCheckboxModule} from '@angular/material/checkbox';
@@ -28,6 +28,7 @@ import { NgReduxRouter, NgReduxRouterModule } from '@angular-redux/router';
 import { HttpClientModule } from '@angular/common/http';
 
 import { rootReducer } from './store'; // Added this to get the root reducer
+import { FilterSitters } from './sitters-list/sitters.filter';
 
 @NgModule({
   declarations: [
@@ -41,11 +42,13 @@ import { rootReducer } from './store'; // Added this to get the root reducer
     HenrikComponent,
     PortalComponent,
     SittersListComponent,
-    DisplaySitterComponent
+    DisplaySitterComponent,
+    FilterSitters
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,

@@ -13,6 +13,10 @@ import { ApiService } from '../services/api.service';
 export class SittersListComponent implements OnInit {
   sitters: Sitter[];
   
+  /// year: 2000, month is 0-indexed, day is 1-indexed.
+  // js-lib: momentjs
+  birthday = new Date(2000, 10, 1);
+  
   constructor(private ngRedux: NgRedux<IAppState>,
     private apiService: ApiService) { 
     // this.sitters = tempData.sitters;
