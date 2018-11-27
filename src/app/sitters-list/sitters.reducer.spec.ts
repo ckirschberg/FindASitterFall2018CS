@@ -30,7 +30,8 @@ it('Toggle isBaby or sitter', () => {
     // Initial state
     let startState = TempDataService.getInitialSitterTestState();
     
-    let endState = {isBaby: undefined, sitters: [
+    let endState = TempDataService.getInitialSitterTestState();
+    endState.sitters = [
       {_id: '1',username: 'azat', password: 'secret', name: 'Azat Baran', gender: 'male',
       birthDate: new Date(1995, 2, 16), noCriminalRecord: true, noChildRecord: true,
       hourlyWage: 1337, address: 'some', zipCode: '2600', city: 'Glostrup' },
@@ -38,7 +39,7 @@ it('Toggle isBaby or sitter', () => {
       {_id: '3', username: 'salik', password: 'secret3', name: 'Salik fasdjæ', gender: 'male',
       birthDate: new Date(1995, 1, 1), noCriminalRecord: true, noChildRecord: true,
       hourlyWage: 100, address: 'some', zipCode: '2400', city: 'København NV' }
-    ]};
+    ];
 
     // Checks for state mutations.
     deepFreeze(startState);

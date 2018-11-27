@@ -7,6 +7,7 @@ import { SittersState } from '../store';
 })
 export class TempDataService {
 
+  // Unit tests use this code!
   public static getInitialSitterTestState() : SittersState {
     return {isBaby: undefined, isProcessing: false, sitters: [
       {_id: '1',username: 'azat', password: 'secret', name: 'Azat Baran', gender: 'male',
